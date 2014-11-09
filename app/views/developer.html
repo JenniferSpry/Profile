@@ -1,0 +1,27 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="site-header">Code Projects</h2>
+    </div>
+  </div>
+
+  <div class="row project-row" ng-repeat="row in rows">
+    <div class="col-sm-2">
+      <img ng-if="row[0].imageFileName" src="img/codeProjects/{{row[0].imageFileName}}" width="100%" />
+    </div>
+    <div class="col-sm-4">
+      <h3>{{ row[0].title }}</h3>
+      <p ng-bind-html="row[0].description"></p>
+    </div>
+
+    <div ng-if="row[1]" class="col-sm-2">
+      <img ng-if="row[1].imageFileName" src="img/codeProjects/{{row[1].imageFileName}}" width="100%" />
+    </div>
+    <div ng-if="row[1]" class="col-sm-4">
+      <h3>{{ row[1].title }}</h3>
+      <p ng-bind-html="row[1].description"></p>
+    </div>
+  </div>
+
+</div>

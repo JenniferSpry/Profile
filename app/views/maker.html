@@ -1,0 +1,13 @@
+<div masonry preserve-order column-width="200">
+  <div class="masonry-brick" ng-repeat="craft in crafts">
+
+    <div class="masonry-brick-img">
+      <img src="../img/crafts/{{craft.imageFileName}}" class="animation-fade animation-faded" alt="{{craft.title}}">
+    </div>
+
+    <div class="masonry-brick-text">
+      <p>{{craft.title}}</p>
+    </div>
+        
+  </div>
+</div>
