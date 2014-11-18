@@ -182,3 +182,12 @@ h3 {
 .project-row {
   margin-bottom: 25px;
 }
+
+/* -- Masonry -- */
+.masonry-brick {
+  width: 25%;
+}
+
+.masonry-brick-img img {
+  width: 100%;
+}
