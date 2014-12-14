@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('jenniferSpry')
 .controller('MakerCtrl', ['$scope', 'CraftHttpService', function($scope, CraftHttpService) {
   

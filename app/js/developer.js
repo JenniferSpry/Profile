@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('jenniferSpry')
 .controller('DeveloperCtrl', ['$scope', 'ProjectHttpService', function($scope, ProjectHttpService) {
 

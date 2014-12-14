@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('jenniferSpry')
 .service('ProjectHttpService', ['$http', '$q', 'APIUrls', function($http, $q, APIUrls) {
 

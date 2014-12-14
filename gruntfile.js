@@ -12,7 +12,7 @@ module.exports = function (grunt) {
     // configurable paths
     var projectConfig = {
         app: 'app',
-        dist: 'dist'
+        dist: 'dist'//distribution
     };
     // Project configuration.
     grunt.initConfig({

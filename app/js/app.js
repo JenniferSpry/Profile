@@ -1,7 +1,9 @@
+'use strict';
+
 var APIUrls = {
   allProjects: 'http://jenniferspry.com/API/projects.php',
   allCrafts: 'http://jenniferspry.com/API/crafts.php'
-}
+};
 
 angular.module('jenniferSpry', [
   'ngRoute',
@@ -29,7 +31,7 @@ angular.module('jenniferSpry', [
       templateUrl: 'views/developer.html'
     })
     .when('/impress', {
-      templateUrl: 'views/impress.html',
+      templateUrl: 'views/impress.html'
     })
     .otherwise({redirectTo: '/home'});
 }]);
