@@ -1,4 +1,6 @@
 /node_modules
 /layout
 /app/bower_components
-img/
+/app/files
+.css
+/.sass-cache

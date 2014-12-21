@@ -17,17 +17,33 @@ module.exports = function (grunt) {
     // Project configuration.
     grunt.initConfig({
         project: projectConfig,
+        pkg: grunt.file.readJSON('package.json'), //package.json inhalte laden zum so nutzen: <%= pkg.name %>
+        tag: {
+          banner: '/*!\n' +
+                  ' * <%= pkg.name %>\n' +
+                  ' * <%= pkg.title %>\n' +
+                  ' * @author <%= pkg.author %>\n' +
+                  ' * @version <%= pkg.version %>\n' +
+                  ' */\n'
+        },
+        /** tasks **/
         watch: {
             livereload: {
                 files: [
                     '<%= project.app %>/{,*/}*.html',
-                    '{.tmp,<%= project.app %>}/css/{,*/}*.css',
                     '{.tmp,<%= project.app %>}/js/{,*/}*.js',
                     '<%= project.app %>/img/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
                 ],
-                //tasks: ['livereload', 'compass']
                 tasks: ['livereload']
 
+            },
+            sass: { // wenn sich ein sass file ändert, führe sass:dev aus
+                files: '<%= project.src %>/scss/{,*/}*.{scss,sass}',
+                tasks: ['sass:dev']
+            },
+            bower: {
+                files: '<%= project.src %>/bower.json',
+                tasks: ['wiredep']
             }
         },
         connect: {
@@ -63,7 +79,7 @@ module.exports = function (grunt) {
                 url: 'http://localhost:<%= connect.options.port %>'
             }
         },
-        clean: {
+        clean: { // ordner/ dateien löschen
             dist: {
                 files: [{
                     dot: true,
@@ -85,21 +101,82 @@ module.exports = function (grunt) {
                 jshintrc: '.jshintrc'
             }
         },
-        concat: {
+        sass: { // einzelne scss files in style includen
+          dev: {
+            options: {
+              style: 'expanded'
+            },
+            files: {
+              '<%= project.app %>/css/style.css': '<%= project.app %>/css/style.scss'
+            }
+          },
+          dist: {
+            options: {
+              style: 'compressed',
+              banner: '<%= tag.banner %>'
+            },
+            files: {
+              '<%= project.dist %>/css/style.css': '<%= project.app %>/css/style.scss'
+            }
+          }
+        },
+        copy: {
             dist: {
-                files: {
-                    '<%= project.dist %>/js/scripts.js': [
-                        '.tmp/js/{,*/}*.js',
-                        '<%= project.app %>/js/{,*/}*.js',
-                        '<%= project.app %>/partials/**/*.js'
+                files: [{
+                    expand: true,
+                    dot: true,
+                    cwd: '<%= project.app %>',
+                    dest: '<%= project.dist %>',
+                    src: [
+                        '*.html',
+                        'img/{,*/}*.*'
                     ]
-                }
+                }]
             }
         },
         useminPrepare: {
-            html: '<%= project.app %>/**/*.html',
+            html: '<%= project.app %>/index.html',
             options: {
                 dest: '<%= project.dist %>'
+            }
+        },
+        concat: {
+            options: {
+                separator: ';'
+            },
+            // dist configuration is provided by useminPrepare
+            dist: {}
+        },
+        ngAnnotate: {
+            app: {
+                files: {
+                    '<%= project.dist %>/js/app.js': ['<%= project.dist %>/js/app.js']
+                }
+            }
+        },
+        uglify: {
+            options: {
+                banner: '<%= tag.banner %>'
+            },
+            // dist configuration is provided by useminPrepare
+            dist: {}
+        },
+        filerev: {
+            options: {
+                encoding: 'utf8',
+                algorithm: 'md5',
+                length: 20
+            },
+            release: {
+                // filerev:release hashes(md5) all assets (images, js and css )
+                // in dist directory
+                files: [{
+                    src: [
+                        '<%= project.dist %>/img/*.{jpg,jpeg,gif,png,svg}',
+                        '<%= project.dist %>/js/*.js',
+                        '<%= project.dist %>/css/*.css'
+                    ]
+                }]
             }
         },
         usemin: {
@@ -110,125 +187,33 @@ module.exports = function (grunt) {
                 dirs: ['<%= project.dist %>']
             }
         },
-        imagemin: {
-            dist: {
-                files: [
-                    {
-                        expand: true,
-                        cwd: '<%= project.app %>/img',
-                        src: '{,*/}*.{png,jpg,jpeg}',
-                        dest: '<%= project.dist %>/img'
-                    }
-                ]
-            }
-        },
-        cssmin: {
-            dist: {
-                options: {
-                    report: 'min'
-                },
-                files: {
-                    '<%= project.dist %>/css/app.css': [
-                        '<%= project.app %>/css/app.css'
-                    ]
-                }
-            }
-        },
-        htmlmin: {
-            dist: {
-                options: {
-                },
-                files: [{
-                    expand: true,
-                    cwd: '<%= project.app %>',
-                    src: [
-                        '*.html',
-                        'partials/**/*.html'
-                    ],
-                    dest: '<%= project.dist %>'
-                }]
-            }
-        },
-        cdnify: {
-            dist: {
-                html: ['<%= project.dist %>/*.html']
-            }
-        },
-        ngmin: {
-
-            controllers: {
-                src: ['<%= project.dist %>/js/scripts.js'],
-                dest: '<%= project.dist %>/scripts/scripts.js'
-            }
-        },
-        uglify: {
-            options: {
-                report: 'min'
-            },
-            dist: {
-                files: {
-                    '<%= project.dist %>/scripts/scripts.js': ['<%= project.dist %>/scripts/scripts.js']
-                }
-            }
-        },
-        rev: {
-            dist: {
-                files: {
-                    src: [
-                        '<%= project.dist %>/scripts{,*/}*.js',
-                        '<%= project.dist %>/styles/**/*.css',
-                        '<%= project.dist %>/img/**/*.{png,jpg,jpeg,gif,webp,svg}',
-                        '<%= project.dist %>/css/*'
-                    ]
-                }
-            }
-        },
-        copy: {
-            dist: {
-                files: [{
-                    expand: true,
-                    dot: true,
-                    cwd: '<%= project.app %>',
-                    dest: '<%= project.dist %>',
-                    src: [
-                        '*.{ico,txt,png}',
-                        '.htaccess',
-                        'lib/**/*',
-                        'img/{,*/}*.{gif,webp}',
-                        'partials/**/*',
-                        'css/*'
-                    ]
-                }]
-            }
-        },
         wiredep: {
-          app: {
-            src: '<%= project.app %>/index.html'
-          }
+            app: {
+                src: '<%= project.app %>/index.html',
+                exclude: ['bower_components/bootstrap-sass-official/assets/javascripts']
+            }
         }
     });
 
     grunt.registerTask('serve', [
-        'clean:server',
+        'sass:dev', // css minifizieren und in dist/css speichern
+        'clean:server', // .tmp files löschen
         'livereload-start',
         'connect:livereload',
-        'open',
+        'open', // browser öffnen
         'watch'
     ]);
 
     grunt.registerTask('build', [
-        'clean:dist',
-        'jshint',
+        'clean:dist', // dist ordner leeren
+        'jshint', // js files auf fehler prüfen
+        'sass:dist', // css minifizieren und in dist/css speichern
+        'copy', // copy alles nicht anderweitig behandelte
         'useminPrepare',
-        'imagemin',
-        'cssmin',
-        'htmlmin',
-        'concat',
-        'copy',
-        'cdnify',
-        'ngmin',
-        'uglify',
-        'rev',
+        'concat', // css files concatinieren nach useminPrepare vorgaben; in .tmp/concat/js/app.js speichen
+        'ngAnnotate', // angular safe minimier vorbehandlung
+        'uglify', // js-dateien in dist optimieren
+        'filerev', // name files with hash
         'usemin'
     ]);
 
