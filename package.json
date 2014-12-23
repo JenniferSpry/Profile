@@ -19,7 +19,9 @@
     "matchdep": "~0.3.0",
     "grunt-wiredep": "~2.0.0",
     "grunt-ng-annotate": "~0.8.0",
-    "grunt-contrib-clean": "~0.6.0"
+    "grunt-contrib-clean": "~0.6.0",
+    "grunt-uncss": "^0.3.8",
+    "grunt-contrib-cssmin": "^0.10.0"
   },
   "engines": {
     "node": "&gt;=0.10"

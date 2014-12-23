@@ -35,7 +35,10 @@ module.exports = function (grunt) {
                     '<%= project.app %>/img/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
                 ],
                 tasks: ['livereload']
-
+            },
+            js: {
+                files: ['<%= project.app %>/js/{,*/}*.js'],
+                tasks: ['jshint', 'livereload']
             },
             sass: { // wenn sich ein sass file ändert, führe sass:dev aus
                 files: '<%= project.src %>/scss/{,*/}*.{scss,sass}',
@@ -112,13 +115,22 @@ module.exports = function (grunt) {
           },
           dist: {
             options: {
-              style: 'compressed',
+              style: 'expanded',
               banner: '<%= tag.banner %>'
             },
             files: {
               '<%= project.dist %>/css/style.css': '<%= project.app %>/css/style.scss'
             }
           }
+        },
+        uncss: {
+            dist: {
+                files : {
+                    '<%= project.dist %>/css/style.css': [ 
+                        '<%= project.dist %>/index.html', 
+                        '<%= project.dist %>/views/**/*.html']
+                }
+            }
         },
         copy: {
             dist: {
@@ -128,7 +140,8 @@ module.exports = function (grunt) {
                     cwd: '<%= project.app %>',
                     dest: '<%= project.dist %>',
                     src: [
-                        '*.html',
+                        'index.html',
+                        'views/**/*.html',
                         'img/{,*/}*.*'
                     ]
                 }]
@@ -146,6 +159,13 @@ module.exports = function (grunt) {
             },
             // dist configuration is provided by useminPrepare
             dist: {}
+        },
+        cssmin: {
+            dist: {
+                files: {
+                    '<%= project.dist %>/css/style.css': ['<%= project.dist %>/css/style.css']
+                }
+            }
         },
         ngAnnotate: {
             app: {
@@ -181,13 +201,12 @@ module.exports = function (grunt) {
         },
         usemin: {
             html: ['<%= project.dist %>/**/*.html'],
-            css: ['<%= project.dist %>/**/*.css'],
             options: {
                 basedir: '<%= project.dist %>',
                 dirs: ['<%= project.dist %>']
             }
         },
-        wiredep: {
+        wiredep: { // import bower sources into index.html
             app: {
                 src: '<%= project.app %>/index.html',
                 exclude: ['bower_components/bootstrap-sass-official/assets/javascripts']
@@ -207,14 +226,17 @@ module.exports = function (grunt) {
     grunt.registerTask('build', [
         'clean:dist', // dist ordner leeren
         'jshint', // js files auf fehler prüfen
-        'sass:dist', // css minifizieren und in dist/css speichern
         'copy', // copy alles nicht anderweitig behandelte
+        'sass:dist', // css minifizieren und in dist/css speichern
+        'uncss', // remove unused css
         'useminPrepare',
-        'concat', // css files concatinieren nach useminPrepare vorgaben; in .tmp/concat/js/app.js speichen
+        'concat:generated', // css files concatinieren nach useminPrepare vorgaben; in .tmp/concat/js/app.js speichen
+        'cssmin:dist',
         'ngAnnotate', // angular safe minimier vorbehandlung
-        'uglify', // js-dateien in dist optimieren
+        'uglify:generated', // js-dateien in dist optimieren
         'filerev', // name files with hash
-        'usemin'
+        'usemin',
+        'clean:server'
     ]);
 
     grunt.registerTask('default', ['build']);
