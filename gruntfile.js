@@ -1,5 +1,4 @@
 'use strict';
-var lrSnippet = require('grunt-contrib-livereload/lib/utils').livereloadSnippet;
 var mountFolder = function (connect, dir) {
     return connect.static(require('path').resolve(dir));
 };
@@ -28,60 +27,44 @@ module.exports = function (grunt) {
         },
         /** tasks **/
         watch: {
-            livereload: {
-                files: [
-                    '<%= project.app %>/{,*/}*.html',
-                    '{.tmp,<%= project.app %>}/js/{,*/}*.js',
-                    '<%= project.app %>/img/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
-                ],
-                tasks: ['livereload']
+            options: {
+                livereload: true,
             },
             js: {
                 files: ['<%= project.app %>/js/{,*/}*.js'],
-                tasks: ['jshint', 'livereload']
+                tasks: ['jshint']
             },
             sass: { // wenn sich ein sass file ändert, führe sass:dev aus
-                files: '<%= project.src %>/scss/{,*/}*.{scss,sass}',
+                files: '<%= project.app %>/css/**/*.scss',
                 tasks: ['sass:dev']
             },
             bower: {
-                files: '<%= project.src %>/bower.json',
+                files: '<%= project.app %>/bower.json',
                 tasks: ['wiredep']
             }
         },
         connect: {
             options: {
                 port: 9000,
-                // Change this to '0.0.0.0' to access the server from outside.
+                livereload: 35729,
+                // Change this to '0.0.0.0' to access the server from outside
                 hostname: 'localhost'
             },
             livereload: {
                 options: {
-                    middleware: function (connect) {
-                        return [
-                            lrSnippet,
-                            mountFolder(connect, '.tmp'),
-                            mountFolder(connect, projectConfig.app)
-                        ];
-                    }
-                }
-            },
-            test: {
-                options: {
-                    middleware: function (connect) {
-                        return [
-                            mountFolder(connect, '.tmp'),
-                            mountFolder(connect, 'test')
-                        ];
-                    }
+                    open: true,
+                    base: [
+                        '.tmp',
+                        '<%= project.app %>'
+                    ]
                 }
             }
         },
-        open: {
-            server: {
-                url: 'http://localhost:<%= connect.options.port %>'
-            }
-        },
+        // open: {
+        //     server: {
+        //         url: 'http://localhost:<%= connect.options.port %>'
+        //     }
+        // },
         clean: { // ordner/ dateien löschen
             dist: {
                 files: [{
@@ -217,9 +200,8 @@ module.exports = function (grunt) {
     grunt.registerTask('serve', [
         'sass:dev', // css minifizieren und in dist/css speichern
         'clean:server', // .tmp files löschen
-        'livereload-start',
         'connect:livereload',
-        'open', // browser öffnen
+        //'open', // browser öffnen
         'watch'
     ]);
 
