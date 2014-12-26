@@ -6,7 +6,6 @@ angular.module('jenniferSpry')
   CraftHttpService.getCrafts().then(
     function(crafts) {
       $scope.crafts = crafts;
-      console.log(crafts);
     }
   );
 

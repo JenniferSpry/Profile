@@ -41,6 +41,9 @@ module.exports = function (grunt) {
             bower: {
                 files: '<%= project.app %>/bower.json',
                 tasks: ['wiredep']
+            },
+            html: {
+                ['<%= project.app %>/index.html', '<%= project.app %>/views/{,*/}*.html']
             }
         },
         connect: {

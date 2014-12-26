@@ -11,6 +11,7 @@
 */
 
 @import '../bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss';
+@import 'masonry';
 
 html {
   position: relative;
@@ -183,13 +184,4 @@ h3 {
 /* -- Project -- */
 .project-row {
   margin-bottom: 25px;
-}
-
-/* -- Masonry -- */
-.masonry-brick {
-  width: 25%;
-}
-
-.masonry-brick-img img {
-  width: 100%;
 }
