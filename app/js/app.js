@@ -3,6 +3,7 @@
 var APIUrls = {
   allProjects: 'http://jenniferspry.com/API/projects.php',
   allCrafts: 'http://jenniferspry.com/API/allcrafts.php',
+  allIllus: 'http://jenniferspry.com/API/allillus.php',
   oneCraft: 'http://jenniferspry.com/API/craft.php'
 };
 
@@ -29,7 +30,7 @@ angular.module('jenniferSpry', [
     })
     .when('/illustrator', {
       controller: 'IllustratorCtrl',
-      templateUrl: 'js/illu/_illustrator.html'
+      templateUrl: 'js/illu/_allIllus.html'
     })
     .when('/developer', {
       controller: 'DeveloperCtrl',

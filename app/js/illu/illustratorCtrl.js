@@ -1,6 +1,12 @@
 'use strict';
 
 angular.module('jenniferSpry')
-.controller('IllustratorCtrl', function() {
-  console.log('Illustrator');
-});
+.controller('IllustratorCtrl', ['$scope', 'IlluHttpService', function($scope, IlluHttpService) {
+ 
+  IlluHttpService.getIllus().then(
+    function(illus) {
+      $scope.illus = illus;
+    }
+  );
+
+}]);
