@@ -43,7 +43,7 @@ module.exports = function (grunt) {
                 tasks: ['wiredep']
             },
             html: {
-                ['<%= project.app %>/index.html', '<%= project.app %>/views/{,*/}*.html']
+                files: ['<%= project.app %>/index.html', '<%= project.app %>/views/{,*/}*.html']
             }
         },
         connect: {
@@ -63,11 +63,6 @@ module.exports = function (grunt) {
                 }
             }
         },
-        // open: {
-        //     server: {
-        //         url: 'http://localhost:<%= connect.options.port %>'
-        //     }
-        // },
         clean: { // ordner/ dateien löschen
             dist: {
                 files: [{

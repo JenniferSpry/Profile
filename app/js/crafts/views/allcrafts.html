@@ -2,12 +2,13 @@
   <div class="masonry-brick" ng-repeat="craft in crafts">
   	<div class="masonry-brick-content">
 	    <div class="masonry-brick-img">
-	      <img src="../files/img/crafts/{{craft.imageFileName}}" class="animation-fade animation-faded" alt="{{craft.title}}">
+	      <a href="#/craft/{{craft.id}}">
+	      	<img src="../files/img/crafts/{{craft.imageFileName}}" class="animation-fade animation-faded" alt="{{craft.title}}">
+	      </a>
 	    </div>
 
 	    <div class="masonry-brick-text">
 	      	{{craft.title}}
 	    </div>
-        </div>
   	</div>
 </div>

@@ -2,7 +2,8 @@
 
 var APIUrls = {
   allProjects: 'http://jenniferspry.com/API/projects.php',
-  allCrafts: 'http://jenniferspry.com/API/crafts.php'
+  allCrafts: 'http://jenniferspry.com/API/allcrafts.php',
+  oneCraft: 'http://jenniferspry.com/API/craft.php'
 };
 
 angular.module('jenniferSpry', [
@@ -18,17 +19,21 @@ angular.module('jenniferSpry', [
     .when('/home', {
       templateUrl: 'views/home.html'
     })
-    .when('/maker', {
-      controller: 'MakerCtrl',
-      templateUrl: 'views/maker.html'
+    .when('/crafts', {
+      controller: 'CraftsCtrl',
+      templateUrl: 'js/crafts/views/allcrafts.html'
+    })
+    .when('/craft/:id', {
+      controller: 'OneCraftCtrl',
+      templateUrl: 'js/crafts/views/craft.html'
     })
     .when('/illustrator', {
       controller: 'IllustratorCtrl',
-      templateUrl: 'views/illustrator.html'
+      templateUrl: 'js/illu/illustrator.html'
     })
     .when('/developer', {
       controller: 'DeveloperCtrl',
-      templateUrl: 'views/developer.html'
+      templateUrl: 'js/developer/developer.html'
     })
     .when('/impress', {
       templateUrl: 'views/impress.html'

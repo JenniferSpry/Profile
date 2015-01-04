@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('jenniferSpry')
-.controller('MakerCtrl', ['$scope', 'CraftHttpService', function($scope, CraftHttpService) {
+.controller('CraftsCtrl', ['$scope', 'CraftHttpService', function($scope, CraftHttpService) {
   
   CraftHttpService.getCrafts().then(
     function(crafts) {
