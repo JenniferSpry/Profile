@@ -17,26 +17,26 @@ angular.module('jenniferSpry', [
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider
     .when('/home', {
-      templateUrl: 'views/home.html'
+      templateUrl: '_home.html'
     })
     .when('/crafts', {
       controller: 'CraftsCtrl',
-      templateUrl: 'js/crafts/views/allcrafts.html'
+      templateUrl: 'js/crafts/_allcrafts.html'
     })
     .when('/craft/:id', {
       controller: 'OneCraftCtrl',
-      templateUrl: 'js/crafts/views/craft.html'
+      templateUrl: 'js/crafts/_craft.html'
     })
     .when('/illustrator', {
       controller: 'IllustratorCtrl',
-      templateUrl: 'js/illu/illustrator.html'
+      templateUrl: 'js/illu/_illustrator.html'
     })
     .when('/developer', {
       controller: 'DeveloperCtrl',
-      templateUrl: 'js/developer/developer.html'
+      templateUrl: 'js/developer/_developer.html'
     })
     .when('/impress', {
-      templateUrl: 'views/impress.html'
+      templateUrl: '_impress.html'
     })
     .otherwise({redirectTo: '/home'});
 }]);
