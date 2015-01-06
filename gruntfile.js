@@ -43,7 +43,7 @@ module.exports = function (grunt) {
                 tasks: ['wiredep']
             },
             html: {
-                files: ['<%= project.app %>/index.html', '<%= project.app %>/views/{,*/}*.html']
+                files: ['<%= project.app %>/*.html', '<%= project.app %>/views/{,*/}*.html']
             }
         },
         connect: {

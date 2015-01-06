@@ -1,0 +1,46 @@
+/* -- Nav -- */
+.navbar {
+  min-height: 70px;
+  margin-bottom: 0;
+}
+
+.navbar-brand {
+  height: 70px;
+  font-size: 30px;
+  padding: 25px 15px;
+}
+
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+  color: white;
+}
+
+.navbar-default .navbar-brand {
+  color: white;
+}
+
+.navbar-default .navbar-nav > li > a {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  color: white;
+}
+
+// .navbar-nav > li > a:hover {
+//   color: white !important;
+// }
+
+.navbar-default {
+  background-color: $primary-color;
+  border: none;
+}
+
+.navbar-toggle {
+  margin-top: 17px;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: white;
+}
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+  background-color: #009989;
+}

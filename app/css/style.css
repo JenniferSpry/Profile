@@ -6828,30 +6828,63 @@ button.close {
   padding: 5px;
 }
 
-html {
+.home-background {
+  width: 100%;
+  position: absolute;
+  top: 70px;
+  bottom: 0;
+  background-color: #29d6a7;
+}
+
+.home-wrapper {
+  height: 100%;
+  width: 780px;
+  margin: 0 auto;
+}
+
+.home-content {
+  overflow: hidden;
   position: relative;
-  min-height: 100%;
+  color: white;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.home-content h1 {
+  margin-bottom: 60px;
+  font-weight: 300;
 }
 
-body {
-  padding-top: 100px;
-  /* Margin bottom by footer height */
-  margin-bottom: 100px;
+.home-circle {
+  border: 6px solid white;
+  width: 250px;
+  height: 250px;
 }
 
-/* -- Type -- */
-h1, h2 {
-  font-family: 'Lily Script One', cursive;
-  color: #00A392;
+.home-circle-container {
+  display: block;
+  float: left;
+  width: 250px;
+  height: 350px;
+  margin-right: 15px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.home-circle-container:last-of-type {
+  margin-right: 0;
+}
+.home-circle-container a {
+  color: white;
+  font-weight: 300;
+  text-decoration: none;
+}
+.home-circle-container a:hover {
+  color: #004D45;
 }
 
-h3 {
-  font-size: 20px;
-}
-
-.site-header {
-  margin-bottom: 40px;
-  margin-top: 0;
+/* -- Project -- */
+.project-row {
+  margin-bottom: 25px;
 }
 
 @media only screen and (min-width: 750px) {
@@ -6864,44 +6897,16 @@ h3 {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 60px;
-  padding-top: 20px;
+  height: 40px;
+  padding-top: 10px;
+  background-color: white;
   text-align: center;
-  color: white;
-  background: #00A392;
-  /* Old browsers */
-  background: -moz-linear-gradient(-45deg, #21bf91 0%, #009989 100%);
-  /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #21bf91), color-stop(100%, #009989));
-  /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(-45deg, #21bf91 0%, #009989 100%);
-  /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(-45deg, #21bf91 0%, #009989 100%);
-  /* Opera 11.10+ */
-  background: -ms-linear-gradient(-45deg, #21bf91 0%, #009989 100%);
-  /* IE10+ */
-  background: linear-gradient(135deg, #21bf91 0%, #009989 100%);
-  /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#21BF91', endColorstr='#009989',GradientType=1 );
-  /* IE6-9 fallback on horizontal gradient */
-  box-shadow: inset 0 20px 20px -20px #004D45;
-  -moz-box-shadow: inset 0 20px 20px -20px #004D45;
-  -webkit-box-shadow: inset 0 20px 20px -20px #004D45;
-}
-
-.footer a {
-  color: white;
-  text-shadow: 1px 1px 2px #004D45;
-}
-
-.footer a:hover {
-  color: white;
-  text-shadow: 1px 1px 3px #001A17;
 }
 
 /* -- Nav -- */
 .navbar {
   min-height: 70px;
+  margin-bottom: 0;
 }
 
 .navbar-brand {
@@ -6912,51 +6917,21 @@ h3 {
 
 .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
   color: white;
-  text-shadow: 1px 1px 3px #001A17;
 }
 
 .navbar-default .navbar-brand {
   color: white;
-  font-family: 'Lily Script One', cursive;
-  text-shadow: 1px 1px 2px #004D45;
-}
-
-.navbar-nav > li > a {
-  padding-top: 25px;
-  padding-bottom: 25px;
-  text-shadow: 1px 1px 2px #004D45;
-}
-
-.navbar-nav > li > a:hover {
-  color: white !important;
-  text-shadow: 1px 1px 3px #001A17;
-}
-
-.navbar-default {
-  background: #00A392;
-  /* Old browsers */
-  background: -moz-linear-gradient(-45deg, #9fe5c6 0%, #00a392 100%);
-  /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #9fe5c6), color-stop(100%, #00a392));
-  /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(-45deg, #9fe5c6 0%, #00a392 100%);
-  /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(-45deg, #9fe5c6 0%, #00a392 100%);
-  /* Opera 11.10+ */
-  background: -ms-linear-gradient(-45deg, #9fe5c6 0%, #00a392 100%);
-  /* IE10+ */
-  background: linear-gradient(135deg, #9fe5c6 0%, #00a392 100%);
-  /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#9fe5c6', endColorstr='#00a392',GradientType=1 );
-  /* IE6-9 fallback on horizontal gradient */
-  border-style: none;
-  box-shadow: inset 0 -20px 20px -20px #004D45;
-  -moz-box-shadow: inset 0 -20px 20px -20px #004D45;
-  -webkit-box-shadow: inset 0 -20px 20px -20px #004D45;
 }
 
 .navbar-default .navbar-nav > li > a {
+  padding-top: 25px;
+  padding-bottom: 25px;
   color: white;
+}
+
+.navbar-default {
+  background-color: #29d6a7;
+  border: none;
 }
 
 .navbar-toggle {
@@ -6971,42 +6946,34 @@ h3 {
   background-color: #009989;
 }
 
-/* -- Home -- */
-@media only screen and (min-width: 750px) {
-  .home-circles {
-    margin-top: 150px;
-  }
+html {
+  position: relative;
+  min-height: 100%;
 }
-@media only screen and (max-width: 750px) {
-  .home-circles {
-    margin-top: 20px;
-  }
+
+body {
+  padding-top: 100px;
+  /* Margin bottom by footer height */
+  margin-bottom: 100px;
+  font-family: 'Ubuntu', sans-serif;
+  color: #000;
 }
-.home-circles a {
-  color: #00A392;
+
+/* -- Type -- */
+h3 {
+  font-size: 20px;
+}
+
+a {
+  color: #29d6a7;
+}
+
+a:hover {
+  color: #1b876a;
   text-decoration: none;
 }
 
-.home-circles a:hover {
-  color: #004D45;
-  text-decoration: none;
-}
-
-.home-circles .col-sm-4 {
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.home-circles h2 {
-  font-weight: normal;
-}
-
-.home-circles .col-sm-4 p {
-  margin-right: 10px;
-  margin-left: 10px;
-}
-
-/* -- Project -- */
-.project-row {
-  margin-bottom: 25px;
+.site-header {
+  margin-bottom: 40px;
+  margin-top: 0;
 }
