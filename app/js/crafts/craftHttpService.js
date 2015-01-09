@@ -39,4 +39,22 @@ angular.module('jenniferSpry')
     return deferred.promise;
   };
 
+  this.getRandomCraft = function(amount) {
+    var deferred = $q.defer();
+
+    $http.get(APIUrls.randomCraft+"?amount="+amount).then(
+      function(response) {
+        var result = response.data;
+
+        deferred.resolve(result);
+        
+      }, function(response) {
+        //console.log('Error');
+        //console.log(response);
+        deferred.reject(response);
+      });
+
+    return deferred.promise;
+  };
+
 }]);

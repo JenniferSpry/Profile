@@ -1,19 +1,9 @@
-/* 
- * base: #00A392
- * light: #9FE5C6;
- * gradient-dark: base
- * gradient-light: #25D6A2
- * gradient2-light: #21BF91;
- * gradient2-dark: #009989;
- * shadow: #004D45;
- * shadow-darker: #001A17 ;
- * 
-*/
 $primary-color: #29D6A7;
 $primary-color-brighter: #BEF7E8;
 $primary-color-darker: #1B876A;
 
 @import '../bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss';
+@import 'loading-bar';
 @import 'masonry';
 @import 'home';
 @import 'projects';

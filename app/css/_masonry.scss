@@ -3,6 +3,12 @@
   width: 25%;
 }
 
+@media only screen and (max-width: 750px) {
+  .masonry-brick {
+	  width: 50%;
+	}
+}
+
 .masonry-brick-content {
 	margin: 5px;
 	border: 1px solid #ddd;

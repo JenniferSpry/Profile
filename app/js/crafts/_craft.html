@@ -1,6 +1,7 @@
 <div class="container">
-  <h3>
-    {{craft.title}}
-  </h3>
-  <img src="../files/img/crafts/{{craft.imageFileName}}" class="animation-fade animation-faded" alt="{{craft.title}}">
+	<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+	<h3>
+		{{craft.title}}
+	</h3>
+	<img src="../files/img/crafts/{{craft.imageFileName}}" class="animation-fade animation-faded" alt="{{craft.title}}">
 </div>

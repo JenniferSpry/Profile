@@ -4,15 +4,19 @@ var APIUrls = {
   allProjects: 'http://jenniferspry.com/API/projects.php',
   allCrafts: 'http://jenniferspry.com/API/allcrafts.php',
   allIllus: 'http://jenniferspry.com/API/allillus.php',
-  oneCraft: 'http://jenniferspry.com/API/craft.php'
+  oneCraft: 'http://jenniferspry.com/API/craft.php',
+  randomCraft: 'http://jenniferspry.com/API/random_craft.php',
 };
 
 angular.module('jenniferSpry', [
   'ngRoute',
   'ngSanitize',
+  'ngAnimate',
   'ui.bootstrap.transition',
   'ui.bootstrap.collapse',
-  'wu.masonry'
+  'ui.bootstrap.alert',
+  'wu.masonry',
+  'angular-loading-bar'
 ])
 .constant('APIUrls', APIUrls)
 .config(['$routeProvider', function($routeProvider) {
