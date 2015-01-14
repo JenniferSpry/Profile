@@ -15,22 +15,23 @@ if (isset($_GET["amount"])) {
 
         $stmt = $dbh->prepare($query);
 
-        $stmt->execute(array('id' => $_GET["amount"]));
+        $stmt->bindValue(':amount', intval(trim($_GET['amount'])), PDO::PARAM_INT);
+        $stmt->execute();
      
         $result = $stmt->fetchAll();
 
-        $craftybit = array();
-
         if ( count($result) ) {
             // success
+            $response["data"] = array();
             foreach($result as $row) {
+                $craftybit = array();
                 $craftybit["id"] = $row["id"];
                 $craftybit["title"] = $row["title"];
                 $craftybit["imageFileName"] = $row["image_file_name"];
                 $craftybit["alt"] = $row["alt"];
+                array_push($response["data"], $craftybit);
             }
             $response["success"] = 1;
-            $response["data"] = $craftybit;
         } else {
             $response["success"] = 0;
             $response["message"] = "Es konnten keine Elemente gefunden werden.";
