@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('jenniferSpry')
+angular.module('jscrafts')
 .controller('OneCraftCtrl', function($scope, $routeParams, CraftHttpService) {
   
   CraftHttpService.getCraft($routeParams.id).then(
@@ -11,8 +11,8 @@ angular.module('jenniferSpry')
   );
 
   CraftHttpService.getRandomCraft(3).then(
-    function(crafts) {
-      $scope.randomCrafts = crafts;
+    function(data) {
+      $scope.randomCrafts = data.data;
       console.log($scope.randomCrafts);
     },
     function (error) {

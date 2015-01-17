@@ -14,9 +14,9 @@ angular.module('jenniferSpry', [
   'ngAnimate',
   'ui.bootstrap.transition',
   'ui.bootstrap.collapse',
-  'ui.bootstrap.alert',
   'wu.masonry',
-  'angular-loading-bar'
+  'angular-loading-bar',
+  'jscrafts'
 ])
 .constant('APIUrls', APIUrls)
 .config(['$routeProvider', function($routeProvider) {

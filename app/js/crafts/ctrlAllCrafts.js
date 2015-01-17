@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('jenniferSpry')
+angular.module('jscrafts')
 .controller('CraftsCtrl', ['$scope', 'CraftHttpService', function($scope, CraftHttpService) {
   
   CraftHttpService.getCrafts().then(

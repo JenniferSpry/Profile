@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('jenniferSpry')
+angular.module('jscrafts')
 .service('CraftHttpService', ['$http', '$q', 'APIUrls', function($http, $q, APIUrls) {
 
   this.getCrafts = function() {

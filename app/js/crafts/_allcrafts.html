@@ -1,9 +1,10 @@
+<div class="container">
 <div masonry>
   <div class="masonry-brick" ng-repeat="craft in crafts">
   	<div class="masonry-brick-content">
 	    <div class="masonry-brick-img">
 	      <a href="#/craft/{{craft.id}}">
-	      	<img src="../files/img/crafts/{{craft.imageFileName}}" class="animation-fade animation-faded" alt="{{craft.title}}">
+	      	<img src="../files/img/crafts/450x/{{craft.imageFileName}}" class="animation-fade animation-faded" alt="{{craft.title}}">
 	      </a>
 	    </div>
 
@@ -11,4 +12,5 @@
 	      	{{craft.title}}
 	    </div>
   	</div>
+</div>
 </div>
