@@ -1,8 +1,21 @@
 <div class="container">
-	<h2>
+	<h2 class="single-craft-head">
 		{{craft.title}}
 	</h2>
-	<img src="../files/img/crafts/750x/{{craft.imageFileName}}" class="animation-fade animation-faded" alt="{{craft.title}}">
-
-	<random-crafts crafts="randomCrafts"></random-crafts>
+	<div class="row">
+		<div class="col-md-9 col-sm-12">
+			<div class="single-craft">
+				<img src="../files/img/crafts/750x/{{craft.imageFileName}}" class="animation-fade animation-faded" alt="{{craft.title}}">
+				<p ng-bind-html="craft.description"></p>
+			</div>
+		</div>
+		<div class="col-md-3 col-sm-12">
+			<div class="row">
+				<div class="col-md-12 col-sm-4">
+					<h3 class="random-craft-head">More crafts:</h3>
+				</div>
+			</div>
+			<random-crafts crafts="randomCrafts"></random-crafts>
+		</div>
+	</div>
 </div>

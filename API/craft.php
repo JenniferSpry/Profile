@@ -25,7 +25,7 @@ if (isset($_GET["id"])) {
                 $craftybit["id"] = $row["id"];
                 $craftybit["title"] = $row["title"];
                 $craftybit["imageFileName"] = $row["image_file_name"];
-                $craftybit["alt"] = $row["alt"];
+                $craftybit["description"] = $row["description"];
             }
             echo json_encode($craftybit);
         } else {

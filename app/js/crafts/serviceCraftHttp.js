@@ -39,10 +39,10 @@ angular.module('jscrafts')
     return deferred.promise;
   };
 
-  this.getRandomCraft = function(amount) {
+  this.getRandomCraft = function(amount, id) {
     var deferred = $q.defer();
 
-    $http.get(APIUrls.randomCraft+"?amount="+amount).then(
+    $http.get(APIUrls.randomCraft+"?amount="+amount+"&id="+id).then(
       function(response) {
         var result = response.data;
 

@@ -6,16 +6,17 @@ require_once __DIR__ . '/connect_db.php';
 
 $response = array();
 
-if (isset($_GET["amount"])) {
+if (isset($_GET["amount"]) && isset($_GET["id"])) {
     try {
         $dbh = connect_db();
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $query = "SELECT * FROM crafts ORDER BY RAND() LIMIT :amount";
+        $query = "SELECT * FROM crafts WHERE id != :id ORDER BY RAND() LIMIT :amount";
 
         $stmt = $dbh->prepare($query);
 
         $stmt->bindValue(':amount', intval(trim($_GET['amount'])), PDO::PARAM_INT);
+        $stmt->bindValue(':id', intval(trim($_GET['id'])), PDO::PARAM_INT);
         $stmt->execute();
      
         $result = $stmt->fetchAll();

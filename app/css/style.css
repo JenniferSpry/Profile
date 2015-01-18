@@ -7097,6 +7097,37 @@ button.close {
   background-color: #009989;
 }
 
+.single-craft {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+.single-craft img {
+  width: 100%;
+  margin-bottom: 15px;
+}
+.single-craft p {
+  font-size: 120%;
+  margin-bottom: 0;
+}
+
+.single-craft-head {
+  margin-bottom: 30px;
+}
+
+.random-craft-head {
+  margin-top: 0;
+}
+
+.random-craft-craft {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.random-craft-craft img {
+  width: 100%;
+}
+
 html {
   position: relative;
   min-height: 100%;

@@ -1,5 +1,9 @@
-<div class="row">
-	<div class="col-xs-4" ng-repeat="craft in crafts">
- 		<img src="../files/img/crafts/360x250/{{craft.imageFileName}}" width="100%" class="animation-fade animation-faded" alt="{{craft.title}}">
+<div class="row" ng-repeat="craft in crafts">
+	<div class="col-xs-12">
+		<div class="random-craft-craft">
+			<a href="#/craft/{{craft.id}}">
+				<img src="../files/img/crafts/360x250/{{craft.imageFileName}}" alt="{{craft.title}}">
+			</a>
+		</div>
 	</div>
 </div>

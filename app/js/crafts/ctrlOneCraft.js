@@ -6,14 +6,12 @@ angular.module('jscrafts')
   CraftHttpService.getCraft($routeParams.id).then(
     function(craft) {
       $scope.craft = craft;
-      //console.log(craft);
     }
   );
 
-  CraftHttpService.getRandomCraft(3).then(
+  CraftHttpService.getRandomCraft(3, $routeParams.id).then(
     function(data) {
       $scope.randomCrafts = data.data;
-      console.log($scope.randomCrafts);
     },
     function (error) {
       console.log(error);
