@@ -6,8 +6,9 @@ angular.module('jenniferSpry')
   // TODO: create alternative standard image for projects (by technology?)
 
   ProjectHttpService.getProjects().then(
-    function(projects) {
-
+    function(responseData) {
+      console.log(responseData);
+      var projects = responseData.data;
       var rows = [];
       for (var i = 0; i < projects.length; i++){
         if (!rows[Math.floor(i/2)]) {

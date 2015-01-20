@@ -2,9 +2,10 @@
 
 header("Access-Control-Allow-Origin: *");
 
-$response = array();
-
 require_once __DIR__ . '/connect_db.php';
+
+$response = array();
+$response["success"] = 0;
 
 try {
     $dbh = connect_db();
@@ -20,7 +21,7 @@ try {
 
     if ( count($result) ) {
         // success
-
+        $response["data"] = array();
         foreach($result as $row) {
             $project = array();
             $project["id"] = $row["id"];
@@ -29,17 +30,16 @@ try {
             $project["imageFileName"] = $row["image_file_name"];
             $project["link"] = $row["link"];
 
-            array_push($response, $project);
+            array_push($response["data"], $project);
         }
-
-    } else {
         $response["success"] = 1;
-        // $response["message"] = "Es konnten keine Elemente gefunden werden.";
+    } else {
+        $response["message"] = "No elements were found.";
+        $response["error"] = "Empty result.";
     }
 } catch(PDOException $e) {
-    $response["success"] = $e->getMessage();
-    // $response["message"] = "Es konnten keine Elemente gefunden werden.";
-    // $response["error"] = $e->getMessage();
+    $response["message"] = "No elements were found.";
+    $response["error"] = $e->getMessage();
 }
 
 echo json_encode($response);

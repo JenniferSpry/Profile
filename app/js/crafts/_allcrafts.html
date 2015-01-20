@@ -4,12 +4,13 @@
   	<div class="masonry-brick-content">
 	    <div class="masonry-brick-img">
 	      <a href="#/craft/{{craft.id}}">
-	      	<img src="../files/img/crafts/450x/{{craft.imageFileName}}" class="animation-fade animation-faded" alt="{{craft.title}}">
+	      	<img ng-src="../files/img/crafts/450x/{{craft.imageFileName}}" class="animation-fade animation-faded" alt="{{craft.title}}">
 	      </a>
 	    </div>
 
 	    <div class="masonry-brick-text">
 	      	{{craft.title}}
+	      	<p>{{craft.imageFileName}}</p>
 	    </div>
   	</div>
 </div>

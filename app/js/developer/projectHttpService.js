@@ -13,10 +13,7 @@ angular.module('jenniferSpry')
 
     $http.get(APIUrls.allProjects).then(
       function(response) {
-        var result = response.data;
-
-        deferred.resolve(result);
-        
+        deferred.resolve(response.data);
       }, function(response) {
         console.log('Error');
         console.log(response);

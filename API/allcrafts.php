@@ -2,15 +2,16 @@
 
 header("Access-Control-Allow-Origin: *");
 
-$response = array();
-
 require_once __DIR__ . '/connect_db.php';
+
+$response = array();
+$response["success"] = 0;
 
 try {
     $dbh = connect_db();
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $query = "SELECT * FROM crafts";
+    $query = "SELECT * FROM crafts ORDER BY date DESC";
 
     $stmt = $dbh->prepare($query);
 
@@ -20,7 +21,7 @@ try {
 
     if ( count($result) ) {
         // success
-
+        $response["data"] = array();
         foreach($result as $row) {
             $craftybit = array();
             $craftybit["id"] = $row["id"];
@@ -28,17 +29,16 @@ try {
             $craftybit["imageFileName"] = $row["image_file_name"];
             $craftybit["alt"] = $row["alt"];
 
-            array_push($response, $craftybit);
+            array_push($response["data"], $craftybit);
         }
-
-    } else {
         $response["success"] = 1;
-        // $response["message"] = "Es konnten keine Elemente gefunden werden.";
+    } else {
+        $response["message"] = "No elements were found.";
+        $response["error"] = "Empty result.";
     }
 } catch(PDOException $e) {
-    $response["success"] = $e->getMessage();
-    // $response["message"] = "Es konnten keine Elemente gefunden werden.";
-    // $response["error"] = $e->getMessage();
+    $response["message"] = "No elements were found.";
+    $response["error"] = $e->getMessage();
 }
 
 echo json_encode($response);
