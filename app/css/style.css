@@ -7097,15 +7097,11 @@ button.close {
   background-color: #009989;
 }
 
-.single-craft {
-  border: 1px solid #ddd;
-  padding: 10px;
-  margin-bottom: 20px;
-  overflow: hidden;
-}
 .single-craft img {
   max-width: 100%;
   margin-bottom: 15px;
+  border: 1px solid #ddd;
+  padding: 10px;
 }
 .single-craft p {
   font-size: 120%;

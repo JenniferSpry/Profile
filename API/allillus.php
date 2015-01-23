@@ -11,7 +11,7 @@ try {
     $dbh = connect_db();
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $query = "SELECT * FROM illus";
+    $query = "SELECT * FROM illus ORDER BY date DESC";
 
     $stmt = $dbh->prepare($query);
 

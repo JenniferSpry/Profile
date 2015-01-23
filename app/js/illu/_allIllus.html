@@ -1,12 +1,14 @@
+<div class="container">
 <div masonry>
   <div class="masonry-brick" ng-repeat="illu in illus">
   	<div class="masonry-brick-content">
 	    <div class="masonry-brick-img">
-	      	<img ng-src="../files/img/illus/{{illu.imageFileName}}" class="animation-fade animation-faded" alt="{{illu.title}}">
+	      	<img ng-src="../files/img/illus/450x/{{illu.imageFileName}}" class="animation-fade animation-faded" alt="{{illu.title}}">
 	    </div>
 
 	    <div class="masonry-brick-text">
 	      	{{illu.title}}
 	    </div>
   	</div>
+</div>
 </div>
