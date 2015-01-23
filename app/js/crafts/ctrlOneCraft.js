@@ -6,6 +6,7 @@ angular.module('jscrafts')
   CraftHttpService.getCraft($routeParams.id).then(
     function(responseData) {
       $scope.craft = responseData.data;
+      console.log($scope.craft);
     }
   );
 

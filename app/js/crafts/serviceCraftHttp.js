@@ -8,6 +8,7 @@ angular.module('jscrafts')
 
     $http.get(APIUrls.allCrafts).then(
       function(response) {
+        console.log(response);
         var result = response.data;
 
         deferred.resolve(result);
