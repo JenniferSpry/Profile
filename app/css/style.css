@@ -7018,6 +7018,8 @@ button.close {
 }
 .home-content h1 {
   margin-bottom: 60px;
+  margin-left: 15px;
+  margin-right: 15px;
   font-weight: 300;
 }
 
@@ -7048,6 +7050,25 @@ button.close {
   color: #004D45;
 }
 
+@media (max-width: 780px) {
+  .home-content {
+    top: 0%;
+    transform: translateY(0%);
+  }
+
+  .home-wrapper {
+    width: 100%;
+  }
+
+  .home-circle-container {
+    float: none;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .home-circle-container:last-of-type {
+    margin-right: auto;
+  }
+}
 /* -- Project -- */
 .project-row {
   margin-bottom: 25px;

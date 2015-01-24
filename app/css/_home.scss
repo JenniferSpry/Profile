@@ -1,3 +1,5 @@
+$width: 780px;
+
 .home-background {
   width: 100%;
   position: absolute;
@@ -8,7 +10,7 @@
 
 .home-wrapper {
   height: 100%;
-  width: 780px;
+  width: $width;
   margin: 0 auto;
 }
 
@@ -22,6 +24,8 @@
 
   h1 {
     margin-bottom: 60px;
+    margin-left: 15px;
+    margin-right: 15px;
     font-weight: 300;
   }
 }
@@ -52,19 +56,24 @@
 
     &:hover {
       color: #004D45;
-      // text-decoration: none;
     }
   }
 }
 
-// @media only screen and (min-width: 750px) {
-//   .home-circles {
-//     margin-top: 150px;
-//   }
-// }
-
-// @media only screen and (max-width: 750px) {
-//   .home-circles {
-//     margin-top: 20px;
-//   }
-// }
+@media (max-width: $width) {
+  .home-content {
+    top: 0%;
+    transform: translateY(0%);
+  }
+  .home-wrapper {
+    width: 100%;
+  }
+  .home-circle-container {
+    float: none;
+    margin-right: auto;
+    margin-left: auto;
+    &:last-of-type {
+      margin-right: auto;
+    }
+  }
+}
