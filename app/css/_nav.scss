@@ -22,6 +22,10 @@
   padding-top: 25px;
   padding-bottom: 25px;
   color: white;
+
+  &:hover {
+    color: $primary-color-very-dark;
+  }
 }
 
 .navbar-default {

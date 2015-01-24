@@ -1,14 +1,11 @@
 <div class="container">
-<div masonry>
-  <div class="masonry-brick" ng-repeat="illu in illus">
-  	<div class="masonry-brick-content">
-	    <div class="masonry-brick-img">
-	      	<img ng-src="../files/img/illus/450x/{{illu.imageFileName}}" class="animation-fade animation-faded" alt="{{illu.title}}">
-	    </div>
-
-	    <div class="masonry-brick-text">
-	      	{{illu.title}}
-	    </div>
-  	</div>
-</div>
+  <div masonry>
+    <div ng-class="{'masonry-brick-descr' : (!illu.imageFileName)}" class="masonry-brick" ng-repeat="illu in illus">
+      <div class="masonry-brick-content">
+        <div ng-if="illu.imageFileName" class="masonry-brick-img">
+          <img ng-src="../files/img/illus/450x/{{illu.imageFileName}}" class="animation-fade animation-faded" alt="{{illu.title}}">
+        </div>
+        <div class="masonry-brick-text" ng-bind-html="illu.title"></div>
+      </div>
+  </div>
 </div>

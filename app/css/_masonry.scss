@@ -26,11 +26,27 @@
 	border: 1px solid #ddd;
 }
 
+.masonry-brick-descr .masonry-brick-content {
+	background-color: $primary-color;
+	color: white;
+	border: 1px solid $primary-color;
+	a {
+  	color: $primary-color-darker;
+  }
+  a:hover {
+  	color: $primary-color-very-dark;
+  }
+
+  .masonry-brick-text {
+  	font-size: 100%;
+  }
+}
+
 .masonry-brick-img img {
   width: 100%;
 }
 
 .masonry-brick-text {
-	font-size: 12px;
+	font-size: 80%;
 	padding: 5px;
 }

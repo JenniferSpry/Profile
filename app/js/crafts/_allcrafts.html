@@ -1,16 +1,14 @@
 <div class="container">
-<div masonry>
-  <div class="masonry-brick" ng-repeat="craft in crafts">
-  	<div class="masonry-brick-content">
-	    <div class="masonry-brick-img">
-	      <a href="#/craft/{{craft.id}}">
-	      	<img ng-src="../files/img/crafts/450x/{{craft.imageFileName}}" class="animation-fade animation-faded" alt="{{craft.title}}">
-	      </a>
-	    </div>
+  <div masonry>
+    <div ng-class="{'masonry-brick-descr' : (!craft.imageFileName)}" class="masonry-brick" ng-repeat="craft in crafts">
+      <div class="masonry-brick-content">
+        <div ng-if="craft.imageFileName" class="masonry-brick-img">
+          <a href="#/craft/{{craft.id}}">
+            <img ng-src="../files/img/crafts/450x/{{craft.imageFileName}}" class="animation-fade animation-faded" alt="{{craft.title}}">
+          </a>
+        </div>
 
-	    <div class="masonry-brick-text">
-	      	{{craft.title}}
-	    </div>
-  	</div>
-</div>
+        <div class="masonry-brick-text" ng-bind-html="craft.title"></div>
+      </div>
+  </div>
 </div>

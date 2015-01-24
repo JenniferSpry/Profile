@@ -6970,12 +6970,27 @@ button.close {
   border: 1px solid #ddd;
 }
 
+.masonry-brick-descr .masonry-brick-content {
+  background-color: #29d6a7;
+  color: white;
+  border: 1px solid #29d6a7;
+}
+.masonry-brick-descr .masonry-brick-content a {
+  color: #1b876a;
+}
+.masonry-brick-descr .masonry-brick-content a:hover {
+  color: #0b4535;
+}
+.masonry-brick-descr .masonry-brick-content .masonry-brick-text {
+  font-size: 100%;
+}
+
 .masonry-brick-img img {
   width: 100%;
 }
 
 .masonry-brick-text {
-  font-size: 12px;
+  font-size: 80%;
   padding: 5px;
 }
 
@@ -7078,6 +7093,9 @@ button.close {
   padding-top: 25px;
   padding-bottom: 25px;
   color: white;
+}
+.navbar-default .navbar-nav > li > a:hover {
+  color: #0b4535;
 }
 
 .navbar-default {
