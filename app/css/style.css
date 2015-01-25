@@ -6999,7 +6999,6 @@ button.close {
   position: absolute;
   top: 70px;
   bottom: 0;
-  background-color: #29d6a7;
 }
 
 .home-wrapper {
@@ -7013,8 +7012,6 @@ button.close {
   position: relative;
   color: white;
   text-align: center;
-  top: 50%;
-  transform: translateY(-50%);
 }
 .home-content h1 {
   margin-bottom: 60px;
@@ -7051,11 +7048,6 @@ button.close {
 }
 
 @media (max-width: 780px) {
-  .home-content {
-    top: 0%;
-    transform: translateY(0%);
-  }
-
   .home-wrapper {
     width: 100%;
   }
@@ -7136,6 +7128,19 @@ button.close {
   background-color: #009989;
 }
 
+@media only screen and (max-width: 766px) {
+  .collapsing, .in {
+    background-color: #1b876a;
+  }
+
+  .collapsing ul li a, .in ul li a {
+    color: white !important;
+  }
+
+  .collapsing ul li a:hover, .in ul li a:hover {
+    color: #bef7e8 !important;
+  }
+}
 .single-craft img {
   max-width: 100%;
   margin-bottom: 15px;
@@ -7176,6 +7181,10 @@ body {
   margin-bottom: 100px;
   font-family: 'Ubuntu', sans-serif;
   color: #000;
+}
+
+.dark-background {
+  background-color: #29d6a7;
 }
 
 /* -- Type -- */

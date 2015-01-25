@@ -6,6 +6,8 @@
           <img ng-src="../files/img/illus/450x/{{illu.imageFileName}}" class="animation-fade animation-faded" alt="{{illu.title}}">
         </div>
         <div class="masonry-brick-text" ng-bind-html="illu.title"></div>
+        <div ng-if="illu.customerLink" class="masonry-brick-text">For: <a href="illu.customerLink" target="_blank">{{illu.customer}}</a></div>
+        <div ng-if="!illu.customerLink && illu.customer" class="masonry-brick-text">For: {{illu.customer}}</div>
       </div>
   </div>
 </div>

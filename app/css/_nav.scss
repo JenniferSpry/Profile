@@ -44,3 +44,15 @@
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
   background-color: #009989;
 }
+
+@media only screen and (max-width: 766px) {
+  .collapsing, .in {
+    background-color: $primary-color-darker;
+  }
+  .collapsing ul li a, .in ul li a {
+    color: white !important;
+  }
+  .collapsing ul li a:hover, .in ul li a:hover {
+    color: $primary-color-brighter !important;
+  }
+}

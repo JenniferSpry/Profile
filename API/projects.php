@@ -26,7 +26,7 @@ try {
             $project = array();
             $project["id"] = $row["id"];
             $project["title"] = $row["title"];
-            $project["description"] = utf8_encode($row["description"]);
+            $project["description"] = $row["description"];
             $project["imageFileName"] = $row["image_file_name"];
             $project["link"] = $row["link"];
 

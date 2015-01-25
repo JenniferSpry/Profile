@@ -44,4 +44,10 @@ angular.module('jenniferSpry', [
       templateUrl: '_impress.html'
     })
     .otherwise({redirectTo: '/home'});
-}]);
+}])
+.run(function ($rootScope, $location) {
+  $rootScope.$on('$locationChangeSuccess', function () {
+    $rootScope.isHomePage = ($location.path() == '/home');
+    $rootScope.isCollapsed = true;
+  });
+});

@@ -27,6 +27,8 @@ try {
             $illu["id"] = $row["id"];
             $illu["title"] = $row["title"];
             $illu["imageFileName"] = $row["image_file_name"];
+            $illu["customer"] = $row["customer"];
+            $illu["customerLink"] = $row["customer_link"];
 
             array_push($response["data"], $illu);
         }

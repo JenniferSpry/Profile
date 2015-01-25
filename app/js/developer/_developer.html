@@ -8,10 +8,14 @@
 
   <div class="row project-row" ng-repeat="row in rows">
     <div class="col-sm-2">
-      <img ng-if="row[0].imageFileName" ng-src="files/img/codeProjects/{{row[0].imageFileName}}" width="100%" />
+      <a ng-if="row[0].imageFileName && row[0].link" href="{{row[0].link}}" target="_blank">
+        <img ng-src="files/img/codeProjects/{{row[0].imageFileName}}" width="100%" />
+      </a>
+      <img ng-if="row[0].imageFileName && !row[0].link" ng-src="files/img/codeProjects/{{row[0].imageFileName}}" width="100%" />
     </div>
     <div class="col-sm-4">
-      <h3>{{ row[0].title }}</h3>
+      <h3 ng-if="row[0].link"><a href="{{row[0].link}}" target="_blank">{{ row[0].title }}</a></h3>
+      <h3 ng-if="!row[0].link">{{ row[0].title }}</h3>
       <p ng-bind-html="row[0].description"></p>
     </div>
 
