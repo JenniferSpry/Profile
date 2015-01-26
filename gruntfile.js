@@ -131,7 +131,7 @@ module.exports = function (grunt) {
             }
         },
         useminPrepare: {
-            html: '<%= project.app %>/index.html',
+            html: '<%= project.app %>{,*/}*.html',
             options: {
                 dest: '<%= project.dist %>'
             }
@@ -168,19 +168,17 @@ module.exports = function (grunt) {
             options: {
                 encoding: 'utf8',
                 algorithm: 'md5',
-                length: 20
+                length: 10
             },
-            release: {
-                // filerev:release hashes(md5) all assets (images, js and css )
-                // in dist directory
-                files: [{
-                    src: [
-                        '<%= project.dist %>/img/*.{jpg,jpeg,gif,png,svg}',
-                        '<%= project.dist %>/js/*.js',
-                        '<%= project.dist %>/css/*.css'
-                    ]
-                }]
-            }
+            assets: {
+              files: [{
+                src: [
+                  //'<%= project.dist %>/img/*.{jpg,jpeg,gif,png,svg,ico}',
+                  '<%= project.dist %>/js/*.js',
+                  '<%= project.dist %>/css/*.css'
+                ]
+              }]
+            }        
         },
         usemin: {
             html: ['<%= project.dist %>/**/*.html'],

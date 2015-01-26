@@ -6994,6 +6994,10 @@ button.close {
   padding: 5px;
 }
 
+.masonry-no-image {
+  display: none;
+}
+
 .home-background {
   width: 100%;
   position: absolute;
