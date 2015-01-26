@@ -1,10 +1,15 @@
 /* -- Project -- */
 .project-row {
-  margin-bottom: 25px;
-}
-
-@media only screen and (min-width: 750px) {
-  .project-row h3 {
+  h3 {
     margin-top: 0;
   }
+}
+
+.project-single-row {
+  margin-bottom: 20px;
+}
+
+.project-image {
+  max-width: 100%;
+  border: 1px solid #ddd; 
 }

@@ -3,6 +3,9 @@ $primary-color-brighter: #BEF7E8;
 $primary-color-darker: #1B876A;
 $primary-color-very-dark: #0B4535;
 
+// $screen-sm-min: 400px !default;
+
+
 @import '../bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss';
 @import 'loading-bar';
 @import 'masonry';
@@ -11,6 +14,7 @@ $primary-color-very-dark: #0B4535;
 @import 'footer';
 @import 'nav';
 @import 'crafts';
+
 
 html {
   position: relative;

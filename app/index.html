@@ -29,9 +29,15 @@
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" collapse="isCollapsed">
 	      <ul class="nav navbar-nav navbar-right">
-	        <li><a href="#/developer">Code Projects</a></li>
-	    		<li><a href="#/crafts">Crafts</a></li>
-	        <li><a href="#/illustrator">Illustration</a></li>
+          <li><a href="#/developer">Code Projects</a></li>
+          <li><a href="#/crafts">Crafts</a></li>
+          <li><a href="#/illustrator">Illustration</a></li>
+          <li>
+            <a href="http://www.pinterest.com/jennifersdiy/" target="_blank">
+              <img ng-if="isCollapsed" src="../img/pint.png" alt="Pinterest Icon">
+              <img ng-if="!isCollapsed" src="../img/pint-light.png" alt="Pinterest Icon">
+            </a>
+          </li>
 	      </ul>
 	    </div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->
@@ -74,8 +80,9 @@
   <script src="bower_components/bootstrap-ui/src/transition/transition.js"></script>
   <script src="bower_components/bootstrap-ui/src/collapse/collapse.js"></script>
   <script src="bower_components/bootstrap-ui/src/alert/alert.js"></script>
-    <!-- endbuild -->
+  <!-- endbuild -->
 
+  <script src="js/analytics.js"></script>
   <!-- build:js js/app.js -->
   <script src="js/app.js"></script>
   <script src="js/crafts/moduleCrafts.js"></script>

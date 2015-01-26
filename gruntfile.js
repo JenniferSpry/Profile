@@ -31,7 +31,7 @@ module.exports = function (grunt) {
                 livereload: true,
             },
             js: {
-                files: ['<%= project.app %>/js/{,*/}*.js'],
+                files: ['<%= project.app %>/js/{,*/}*.js', '!<%= project.app %>/js/analytics.js'],
                 tasks: ['jshint']
             },
             sass: { // wenn sich ein sass file ändert, führe sass:dev aus

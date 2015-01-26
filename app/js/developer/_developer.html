@@ -7,24 +7,20 @@
   </div>
 
   <div class="row project-row" ng-repeat="row in rows">
-    <div class="col-sm-2">
-      <a ng-if="row[0].imageFileName && row[0].link" href="{{row[0].link}}" target="_blank">
-        <img ng-src="files/img/codeProjects/{{row[0].imageFileName}}" width="100%" />
-      </a>
-      <img ng-if="row[0].imageFileName && !row[0].link" ng-src="files/img/codeProjects/{{row[0].imageFileName}}" width="100%" />
-    </div>
-    <div class="col-sm-4">
-      <h3 ng-if="row[0].link"><a href="{{row[0].link}}" target="_blank">{{ row[0].title }}</a></h3>
-      <h3 ng-if="!row[0].link">{{ row[0].title }}</h3>
-      <p ng-bind-html="row[0].description"></p>
-    </div>
-
-    <div ng-if="row[1]" class="col-sm-2">
-      <img ng-if="row[1].imageFileName" ng-src="files/img/codeProjects/{{row[1].imageFileName}}" width="100%" />
-    </div>
-    <div ng-if="row[1]" class="col-sm-4">
-      <h3>{{ row[1].title }}</h3>
-      <p ng-bind-html="row[1].description"></p>
+    <div class="col-md-6" ng-repeat="elem in row">
+      <div class="row project-single-row">
+        <div class="col-xs-4 col-sm-4">
+          <a ng-if="elem.imageFileName && elem.link" href="{{elem.link}}" target="_blank">
+            <img ng-src="files/img/codeProjects/250x/{{elem.imageFileName}}" class="project-image" />
+          </a>
+          <img ng-if="elem.imageFileName && !elem.link" ng-src="files/img/codeProjects/250x/{{elem.imageFileName}}" class="project-image" />
+        </div>
+        <div class="col-xs-8 col-sm-8">
+          <h3 ng-if="elem.link"><a href="{{elem.link}}" target="_blank">{{ elem.title }}</a></h3>
+          <h3 ng-if="!elem.link">{{ elem.title }}</h3>
+          <p ng-bind-html="elem.description"></p>
+        </div>
+      </div>
     </div>
   </div>
 
