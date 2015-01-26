@@ -3,11 +3,6 @@
 angular.module('jenniferSpry')
 .service('ProjectHttpService', ['$http', '$q', 'APIUrls', function($http, $q, APIUrls) {
 
-
-  function parseProject(data){
-
-  }
-
   this.getProjects = function() {
     var deferred = $q.defer();
 

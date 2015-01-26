@@ -36,9 +36,9 @@ angular.module('jenniferSpry', [
       controller: 'IllustratorCtrl',
       templateUrl: 'js/illu/_allIllus.html'
     })
-    .when('/developer', {
-      controller: 'DeveloperCtrl',
-      templateUrl: 'js/developer/_developer.html'
+    .when('/projects', {
+      controller: 'ProjectsCtrl',
+      templateUrl: 'js/projects/_projects.html'
     })
     .when('/impress', {
       templateUrl: '_impress.html'

@@ -1,9 +1,7 @@
 'use strict';
 
 angular.module('jenniferSpry')
-.controller('DeveloperCtrl', ['$scope', 'ProjectHttpService', function($scope, ProjectHttpService) {
-
-  // TODO: create alternative standard image for projects (by technology?)
+.controller('ProjectsCtrl', ['$scope', 'ProjectHttpService', function($scope, ProjectHttpService) {
 
   ProjectHttpService.getProjects().then(
     function(responseData) {
