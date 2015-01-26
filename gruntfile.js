@@ -11,7 +11,8 @@ module.exports = function (grunt) {
     // configurable paths
     var projectConfig = {
         app: 'app',
-        dist: 'dist'//distribution
+        dist: 'dist',//distribution
+        tmp: '.tmp'
     };
     // Project configuration.
     grunt.initConfig({
@@ -79,7 +80,8 @@ module.exports = function (grunt) {
         jshint: {
             all: [
                 'Gruntfile.js',
-                '<%= project.app %>/js/{,*/}*.js'
+                '<%= project.app %>/js/{,*/}*.js', 
+                '!<%= project.app %>/js/analytics.js'
             ],
             options: {
                 jshintrc: '.jshintrc'
@@ -96,8 +98,8 @@ module.exports = function (grunt) {
           },
           dist: {
             options: {
-              style: 'expanded',
-              banner: '<%= tag.banner %>'
+              style: 'expanded'//,
+              //banner: '<%= tag.banner %>'
             },
             files: {
               '<%= project.dist %>/css/style.css': '<%= project.app %>/css/style.scss'
@@ -108,8 +110,7 @@ module.exports = function (grunt) {
             dist: {
                 files : {
                     '<%= project.dist %>/css/style.css': [ 
-                        '<%= project.dist %>/index.html', 
-                        '<%= project.dist %>/views/**/*.html']
+                        '<%= project.dist %>{,*/}*.html']
                 }
             }
         },
@@ -121,9 +122,10 @@ module.exports = function (grunt) {
                     cwd: '<%= project.app %>',
                     dest: '<%= project.dist %>',
                     src: [
-                        'index.html',
-                        'views/**/*.html',
-                        'img/{,*/}*.*'
+                        '*.html',
+                        'img/{,*/}*.*',
+                        'js/{,*/}*.html',
+                        'js/analytics.js'
                     ]
                 }]
             }
@@ -151,7 +153,7 @@ module.exports = function (grunt) {
         ngAnnotate: {
             app: {
                 files: {
-                    '<%= project.dist %>/js/app.js': ['<%= project.dist %>/js/app.js']
+                    '<%= project.tmp %>/concat/js/app.js': ['<%= project.tmp %>/concat/js/app.js']
                 }
             }
         },
@@ -208,7 +210,7 @@ module.exports = function (grunt) {
         'jshint', // js files auf fehler prüfen
         'copy', // copy alles nicht anderweitig behandelte
         'sass:dist', // css minifizieren und in dist/css speichern
-        'uncss', // remove unused css
+        //'uncss', // remove unused css
         'useminPrepare',
         'concat:generated', // css files concatinieren nach useminPrepare vorgaben; in .tmp/concat/js/app.js speichen
         'cssmin:dist',
