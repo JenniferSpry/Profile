@@ -6947,6 +6947,14 @@ button.close {
 }
 
 /* -- Masonry -- */
+.masonry-brick {
+  display: none;
+}
+
+.masonry-brick.loaded {
+  display: block;
+}
+
 /* Extra Small devices (<768px) */
 @media (min-width: 200px) {
   .masonry-brick {
