@@ -19,6 +19,10 @@ angular.module('jenniferSpry', [
   'jscrafts'
 ])
 .constant('APIUrls', APIUrls)
+.config(['$httpProvider', function ($httpProvider) {
+      // enable http caching
+     $httpProvider.defaults.cache = true;
+}])
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider
     .when('/home', {
