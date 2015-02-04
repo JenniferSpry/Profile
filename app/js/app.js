@@ -16,7 +16,8 @@ angular.module('jenniferSpry', [
   'ui.bootstrap.collapse',
   'wu.masonry',
   'angular-loading-bar',
-  'jscrafts'
+  'jscrafts',
+  'headroom'
 ])
 .constant('APIUrls', APIUrls)
 .config(['$httpProvider', function ($httpProvider) {

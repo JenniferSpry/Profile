@@ -188,6 +188,9 @@ module.exports = function (grunt) {
             }
         },
         wiredep: { // import bower sources into index.html
+            options: {
+                exclude: ["bower_components/headroom.js/dist/jQuery.headroom.js"]
+            },
             app: {
                 src: '<%= project.app %>/index.html',
                 exclude: ['bower_components/bootstrap-sass-official/assets/javascripts']
