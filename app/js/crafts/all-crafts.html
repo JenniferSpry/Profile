@@ -4,7 +4,7 @@
 
       <div class="masonry-brick-content">
         <div ng-class="{'masonry-no-image' : (!craft.imageFileName)}" class="masonry-brick-img">
-          <a href="#/craft/{{craft.id}}">
+          <a ui-sref="singleCraft({ craftId: craft.id })">
             <img ng-src="../files/img/crafts/450x/{{craft.imageFileName}}" class="animation-fade animation-faded" alt="{{craft.title}}">
           </a>
         </div>

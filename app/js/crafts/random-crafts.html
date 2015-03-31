@@ -1,6 +1,6 @@
 <div class="col-md-12 col-sm-4" ng-repeat="craft in crafts">
 	<div class="random-craft-craft">
-		<a href="#/craft/{{craft.id}}">
+		<a ui-sref="singleCraft({ craftId: craft.id })">
 			<img ng-src="../files/img/crafts/360x250/{{craft.imageFileName}}" alt="{{craft.title}}">
 		</a>
 	</div>

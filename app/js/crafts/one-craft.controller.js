@@ -3,15 +3,15 @@
 
   angular.module('crafts').controller('OneCraftController', OneCraftController);
 
-  function OneCraftController($scope, $routeParams, CraftsHttpService) {
+  function OneCraftController($scope, $stateParams, CraftsHttpService) {
     
-    CraftsHttpService.getCraft($routeParams.id).then(
+    CraftsHttpService.getCraft($stateParams.craftId).then(
       function(responseData) {
         $scope.craft = responseData.data;
       }
     );
 
-    CraftsHttpService.getRandomCraft(3, $routeParams.id).then(
+    CraftsHttpService.getRandomCraft(3, $stateParams.craftId).then(
       function(responseData) {
         $scope.randomCrafts = responseData.data;
       },

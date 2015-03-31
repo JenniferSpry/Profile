@@ -24,15 +24,15 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </button>
-	      <a class="navbar-brand" href="#/home">Jennifer Spry</a>
+	      <a class="navbar-brand" ui-sref="home">Jennifer Spry</a>
 	    </div>
 
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" collapse="isCollapsed">
 	      <ul class="nav navbar-nav navbar-right">
-          <li><a href="#/projects">Projects</a></li>
-          <li><a href="#/crafts">Crafts</a></li>
-          <li><a href="#/illustrator">Illustration</a></li>
+          <li><a ui-sref="projects">Projects</a></li>
+          <li><a ui-sref="crafts">Crafts</a></li>
+          <li><a ui-sref="illustrator">Illustration</a></li>
           <li>
             <a href="http://www.pinterest.com/jennifersdiy/" target="_blank">
               <img ng-if="isCollapsed" src="../img/pint.png" alt="Pinterest Icon">
@@ -48,11 +48,11 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
 
-  <div ng-view></div>
+  <div ui-view></div>
 
   <div class="footer">
     <div class="container">
-      <p>&copy; 2014 Jennifer Spry &emsp;&#124;&emsp; <a href="#/impress">Impress</a></p>
+      <p>&copy; 2014 Jennifer Spry &emsp;&#124;&emsp; <a ui-sref="impress">Impress</a></p>
     </div>
   </div>
 
@@ -60,8 +60,8 @@
   <!-- bower:js -->
   <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
   <script src="bower_components/get-style-property/get-style-property.js"></script>
   <script src="bower_components/get-size/get-size.js"></script>
   <script src="bower_components/eventie/eventie.js"></script>
@@ -74,6 +74,8 @@
   <script src="bower_components/masonry/masonry.js"></script>
   <script src="bower_components/imagesloaded/imagesloaded.js"></script>
   <script src="bower_components/angular-masonry/angular-masonry.js"></script>
+  <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
   <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/affix.js"></script>
   <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/alert.js"></script>
   <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/button.js"></script>
@@ -86,8 +88,6 @@
   <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/modal.js"></script>
   <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip.js"></script>
   <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover.js"></script>
-  <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
-  <script src="bower_components/angular-animate/angular-animate.js"></script>
   <script src="bower_components/headroom.js/dist/headroom.js"></script>
   <script src="bower_components/headroom.js/dist/angular.headroom.js"></script>
   <!-- endbower -->

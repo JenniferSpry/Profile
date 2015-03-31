@@ -15,32 +15,38 @@
       // enable http caching
       $httpProvider.defaults.cache = true;
     }])
-    .config(['$routeProvider', function($routeProvider) {
-      $routeProvider
-        .when('/home', {
+    .config(function($stateProvider, $urlRouterProvider) {
+      $stateProvider
+        .state('home', {
+          url: '/home',
           templateUrl: 'home.html'
         })
-        .when('/crafts', {
+        .state('crafts', {
+          url: '/crafts',
           controller: 'AllCraftsController',
           templateUrl: 'js/crafts/all-crafts.html'
         })
-        .when('/craft/:id', {
+        .state('singleCraft', {
+          url:'/craft/:craftId',
           controller: 'OneCraftController',
           templateUrl: 'js/crafts/one-craft.html'
         })
-        .when('/illustrator', {
+        .state('illustrator', {
+          url: '/illustrator',
           controller: 'IllusController',
           templateUrl: 'js/illus/all-Illus.html'
         })
-        .when('/projects', {
+        .state('projects', {
+          url: '/projects',
           controller: 'ProjectsController',
           templateUrl: 'js/projects/projects.html'
         })
-        .when('/impress', {
+        .state('impress', {
+          url: 'impress',
           templateUrl: 'impress.html'
-        })
-        .otherwise({redirectTo: '/home'});
-    }])
+        });
+      $urlRouterProvider.otherwise('/home');
+    })
     .run(function($rootScope, $location) {
       $rootScope.$on('$locationChangeSuccess', function() {
         $rootScope.isHomePage = ($location.path() == '/home');
