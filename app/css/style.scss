@@ -7,10 +7,12 @@ $primary-color-very-dark: #0B4535;
 
 
 @import '../bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss';
+@import '../bower_components/angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.css';
 @import 'loading-bar';
 @import 'masonry';
 @import 'home';
 @import 'projects';
+@import 'lightbox-fix';
 @import 'footer';
 @import 'nav';
 @import 'crafts';
