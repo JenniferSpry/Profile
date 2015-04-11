@@ -38,7 +38,7 @@ module.exports = function(grunt) {
           '<%= project.app %>/js/{,*/}*.js', 
           '!<%= project.app %>/js/analytics.js'
         ],
-        tasks: ['jshint', 'jscs']
+        tasks: ['jshint', 'jscs', 'karma:unit:run']
       },
       sass: { // wenn sich ein sass file ändert, führe sass:dev aus
         files: '<%= project.app %>/css/**/*.scss',
@@ -99,6 +99,83 @@ module.exports = function(grunt) {
         '!<%= project.app %>/js/analytics.js'],
       options: {
         config: '.jscsrc'
+      }
+    },
+    karma: {
+      options: {
+        files: [
+          // there must be a better way....
+          'app/bower_components/jquery/dist/jquery.js',
+          'app/bower_components/angular/angular.js',
+          'app/bower_components/angular-sanitize/angular-sanitize.js',
+          'app/bower_components/angular-ui-router/release/angular-ui-router.js',
+          'app/bower_components/get-style-property/get-style-property.js',
+          'app/bower_components/get-size/get-size.js',
+          'app/bower_components/eventie/eventie.js',
+          'app/bower_components/doc-ready/doc-ready.js',
+          'app/bower_components/eventEmitter/EventEmitter.js',
+          'app/bower_components/jquery-bridget/jquery.bridget.js',
+          'app/bower_components/matches-selector/matches-selector.js',
+          'app/bower_components/outlayer/item.js',
+          'app/bower_components/outlayer/outlayer.js',
+          'app/bower_components/masonry/masonry.js',
+          'app/bower_components/imagesloaded/imagesloaded.js',
+          'app/bower_components/angular-masonry/angular-masonry.js',
+          'app/bower_components/angular-loading-bar/build/loading-bar.js',
+          'app/bower_components/angular-animate/angular-animate.js',
+          'app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/affix.js',
+          'app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/alert.js',
+          'app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/button.js',
+          'app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/carousel.js',
+          'app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/collapse.js',
+          'app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/dropdown.js',
+          'app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tab.js',
+          'app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/transition.js',
+          'app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/scrollspy.js',
+          'app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/modal.js',
+          'app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip.js',
+          'app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover.js',
+          'app/bower_components/headroom.js/dist/headroom.js',
+          'app/bower_components/headroom.js/dist/angular.headroom.js',
+          'app/bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
+          'app/bower_components/angular-touch/angular-touch.js',
+          'app/bower_components/bootstrap/dist/js/bootstrap.js',
+          'app/bower_components/angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.js',
+          'app/bower_components/bootstrap-ui/src/transition/transition.js',
+          'app/bower_components/bootstrap-ui/src/collapse/collapse.js',
+          'app/bower_components/bootstrap-ui/src/alert/alert.js',
+          'app/js/app.module.js',
+          'app/js/app.config.js',
+
+          'app/js/crafts/crafts.module.js',
+          'app/js/crafts/crafts-http.service.js',
+          'app/js/crafts/all-crafts.controller.js',
+          'app/js/crafts/one-craft.controller.js',
+          'app/js/crafts/random-crafts.directive.js',
+          
+          'app/js/projects/projects.module.js',
+          'app/js/projects/projects.controller.tests.js',
+          'app/js/projects/projects-http.service.js',
+          'app/js/projects/projects.controller.js',
+
+          'app/js/illus/illus.module.js',
+          'app/js/illus/illus-http.service.js',
+          'app/js/illus/illus.controller.js'
+        ],
+        plugins: [
+          'karma-chrome-launcher',
+          'karma-phantomjs-launcher',
+          'karma-jasmine'
+        ],
+        frameworks: ['jasmine'],
+        browsers: ['PhantomJS']
+      },
+      unit: {
+        background: true
+      },
+      single: {
+        singleRun: true//,
+        //browsers: ['Chrome']
       }
     },
     sass: { // einzelne scss files in style includen
@@ -213,6 +290,7 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('serve', [
+    'karma:unit',
     'sass:dev', // css minifizieren und in dist/css speichern
     'clean:server', // .tmp files löschen
     'connect:livereload',
@@ -234,6 +312,11 @@ module.exports = function(grunt) {
     'usemin',
     'clean:server'
     ]);
+
+  grunt.registerTask('test', [  
+    'jshint',
+    'karma:single'
+  ]);
 
   grunt.registerTask('default', ['build']);
 
