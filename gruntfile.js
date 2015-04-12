@@ -107,6 +107,7 @@ module.exports = function(grunt) {
           // there must be a better way....
           'app/bower_components/jquery/dist/jquery.js',
           'app/bower_components/angular/angular.js',
+          'app/bower_components/angular-mocks/angular-mocks.js', //do not delete
           'app/bower_components/angular-sanitize/angular-sanitize.js',
           'app/bower_components/angular-ui-router/release/angular-ui-router.js',
           'app/bower_components/get-style-property/get-style-property.js',
@@ -156,6 +157,7 @@ module.exports = function(grunt) {
           'app/js/projects/projects.module.js',
           'app/js/projects/projects.controller.tests.js',
           'app/js/projects/projects-http.service.js',
+          'app/js/projects/projects-http.service.tests.js',
           'app/js/projects/projects.controller.js',
 
           'app/js/illus/illus.module.js',
