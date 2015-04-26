@@ -19,7 +19,7 @@ describe('projects-http service', function() {
         {
           id: 1,
           description: 'foo',
-          imageFileName: 'fooooo.jpg',
+          imageFileName: 'foo.jpg',
           link: 'http://foo.org',
           title: 'Foo Projekt'
         },
