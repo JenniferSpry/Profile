@@ -28,6 +28,7 @@ try {
             $project["title"] = $row["title"];
             $project["description"] = $row["description"];
             $project["imageFileName"] = $row["image_file_name"];
+            $project["done"] = $row["done"];
             $project["link"] = $row["link"];
 
             array_push($response["data"], $project);

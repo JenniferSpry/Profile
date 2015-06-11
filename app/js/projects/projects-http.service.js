@@ -10,6 +10,7 @@
 
       $http.get(APIUrls.allProjects).then(
         function(response) {
+          console.log(response);
           deferred.resolve(response.data);
         }, function(response) {
           console.log('Error');

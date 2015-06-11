@@ -16,7 +16,10 @@
           <img ng-if="elem.imageFileName && !elem.link" ng-src="files/img/codeProjects/250x/{{elem.imageFileName}}" class="project-image" />
         </div>
         <div class="col-xs-8 col-sm-8">
-          <h3 ng-if="elem.link"><a href="{{elem.link}}" target="_blank">{{ elem.title }}</a></h3>
+          <h3 ng-if="elem.link">
+            <a href="{{elem.link}}" target="_blank">{{ elem.title }}</a>
+            <span ng-if="elem.done < 100" class="badge">ongoing</span>
+          </h3>
           <h3 ng-if="!elem.link">{{ elem.title }}</h3>
           <p ng-bind-html="elem.description"></p>
         </div>
