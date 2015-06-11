@@ -14,9 +14,9 @@
       }
     );
 
-    $scope.openLightboxModal = function(index) {
-      Lightbox.openModal($scope.crafts, index);
-    };
+    // $scope.openLightboxModal = function(index) {
+    //   Lightbox.openModal($scope.crafts, index);
+    // };
 
   }
 
