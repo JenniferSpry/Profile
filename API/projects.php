@@ -11,7 +11,7 @@ try {
     $dbh = connect_db();
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $query = "SELECT * FROM code_projects ORDER BY weight";
+    $query = "SELECT * FROM code_projects WHERE active = 1 ORDER BY weight";
 
     $stmt = $dbh->prepare($query);
 
