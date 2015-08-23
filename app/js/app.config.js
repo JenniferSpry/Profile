@@ -42,7 +42,7 @@
           templateUrl: 'js/projects/projects.html'
         })
         .state('impress', {
-          url: 'impress',
+          url: '/impress',
           templateUrl: 'impress.html'
         });
       $urlRouterProvider.otherwise('/home');
